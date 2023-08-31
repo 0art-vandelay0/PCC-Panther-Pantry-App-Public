@@ -1,0 +1,13 @@
+.idea/*
+__pycache__/*
+Data/__pycache__/*
+Logic/__pycache__/*
+UI/SendNotificationUI/__pycache__/*
+UI/TabbedUI/__pycache__/*
+UI/WelcomeUI/__pycache__/*
+
+# These files/directories are used by pyinstaller
+build/*
+dist/*
+*.spec
+.env
