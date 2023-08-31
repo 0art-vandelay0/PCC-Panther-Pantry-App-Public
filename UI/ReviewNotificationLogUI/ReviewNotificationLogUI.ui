@@ -1,0 +1,266 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface version="1.3">
+  <object class="ttk.Frame" id="root" named="True">
+    <layout manager="grid" />
+    <containerlayout manager="grid">
+      <property type="col" id="0" name="weight">1</property>
+      <property type="row" id="1" name="weight">1</property>
+    </containerlayout>
+    <child>
+      <object class="ttk.Frame" id="input_frame" named="True">
+        <property name="height">200</property>
+        <property name="width">800</property>
+        <layout manager="grid">
+          <property name="column">0</property>
+          <property name="row">0</property>
+        </layout>
+        <child>
+          <object class="ttk.Frame" id="search_frame" named="True">
+            <property name="borderwidth">3</property>
+            <property name="height">75</property>
+            <property name="width">200</property>
+            <layout manager="pack">
+              <property name="ipady">3</property>
+              <property name="pady">5</property>
+              <property name="side">bottom</property>
+            </layout>
+            <child>
+              <object class="ttk.Button" id="search_button" named="True">
+                <property name="command" type="command" cbtype="simple">search</property>
+                <property name="text" translatable="yes">Search</property>
+                <layout manager="pack">
+                  <property name="ipadx">5</property>
+                  <property name="padx">5</property>
+                  <property name="side">right</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Button" id="reset_button" named="True">
+                <property name="command" type="command" cbtype="simple">reset</property>
+                <property name="text" translatable="yes">Reset</property>
+                <layout manager="pack">
+                  <property name="ipadx">5</property>
+                  <property name="padx">5</property>
+                  <property name="side">right</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Frame" id="cal_frame" named="True">
+            <property name="height">100</property>
+            <property name="width">200</property>
+            <layout manager="pack">
+              <property name="ipadx">20</property>
+              <property name="side">top</property>
+            </layout>
+            <child>
+              <object class="ttk.Frame" id="start_date_frame" named="True">
+                <property name="height">100</property>
+                <property name="width">200</property>
+                <layout manager="pack">
+                  <property name="ipadx">10</property>
+                  <property name="side">top</property>
+                </layout>
+                <child>
+                  <object class="tkcalendar.DateEntry" id="start_date_menu" named="True">
+                    <property name="date_pattern">mm/dd/yyyy</property>
+                    <property name="state">normal</property>
+                    <layout manager="pack">
+                      <property name="side">right</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="ttk.Label" id="start_date_label" named="True">
+                    <property name="text" translatable="yes">Start Date:</property>
+                    <layout manager="pack">
+                      <property name="side">left</property>
+                    </layout>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Frame" id="end_date_frame" named="True">
+                <property name="height">100</property>
+                <property name="padding">2</property>
+                <property name="width">200</property>
+                <layout manager="pack">
+                  <property name="ipadx">13</property>
+                  <property name="side">bottom</property>
+                </layout>
+                <child>
+                  <object class="tkcalendar.DateEntry" id="end_date_menu" named="True">
+                    <property name="date_pattern">mm/dd/yyyy</property>
+                    <property name="firstweekday">monday</property>
+                    <layout manager="pack">
+                      <property name="side">right</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="ttk.Label" id="end_date_label" named="True">
+                    <property name="text" translatable="yes">End Date:</property>
+                    <layout manager="pack">
+                      <property name="side">left</property>
+                    </layout>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Frame" id="notification_log_frame" named="True">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout manager="grid">
+          <property name="column">0</property>
+          <property name="row">1</property>
+          <property name="sticky">nsew</property>
+        </layout>
+        <containerlayout manager="grid">
+          <property type="col" id="0" name="weight">1</property>
+          <property type="row" id="0" name="weight">1</property>
+        </containerlayout>
+        <child>
+          <object class="pygubu.builder.widgets.scrollbarhelper" id="scrollbarhelper1">
+            <property name="scrolltype">both</property>
+            <property name="usemousewheel">false</property>
+            <layout manager="grid">
+              <property name="column">0</property>
+              <property name="row">0</property>
+              <property name="sticky">nsew</property>
+            </layout>
+            <child>
+              <object class="ttk.Treeview" id="log_table" named="True">
+                <property name="selectmode">extended</property>
+                <property name="show">headings</property>
+                <layout manager="grid">
+                  <property name="column">0</property>
+                  <property name="row">0</property>
+                  <property name="sticky">nsew</property>
+                </layout>
+                <child>
+                  <object class="ttk.Treeview.Column" id="subject" named="True">
+                    <property name="column_anchor">center</property>
+                    <property name="heading_anchor">center</property>
+                    <property name="stretch">true</property>
+                    <property name="text" translatable="yes">Subject</property>
+                    <property name="tree_column">false</property>
+                    <property name="visible">true</property>
+                    <property name="width">200</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="ttk.Treeview.Column" id="body" named="True">
+                    <property name="column_anchor">center</property>
+                    <property name="heading_anchor">w</property>
+                    <property name="stretch">true</property>
+                    <property name="text" translatable="yes">Body</property>
+                    <property name="tree_column">false</property>
+                    <property name="visible">true</property>
+                    <property name="width">200</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="ttk.Treeview.Column" id="dateSent" named="True">
+                    <property name="column_anchor">center</property>
+                    <property name="heading_anchor">w</property>
+                    <property name="stretch">true</property>
+                    <property name="text" translatable="yes">Date</property>
+                    <property name="tree_column">false</property>
+                    <property name="visible">true</property>
+                    <property name="width">150</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="ttk.Treeview.Column" id="sentBy" named="True">
+                    <property name="column_anchor">center</property>
+                    <property name="heading_anchor">w</property>
+                    <property name="minwidth">5</property>
+                    <property name="stretch">false</property>
+                    <property name="text" translatable="yes">Sender ID</property>
+                    <property name="tree_column">false</property>
+                    <property name="visible">true</property>
+                    <property name="width">100</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="ttk.Treeview.Column" id="subscriberCount" named="True">
+                    <property name="column_anchor">center</property>
+                    <property name="heading_anchor">w</property>
+                    <property name="stretch">true</property>
+                    <property name="text" translatable="yes">Subscribers
+</property>
+                    <property name="tree_column">false</property>
+                    <property name="visible">true</property>
+                    <property name="width">80</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="expandBottomFrame" named="True">
+        <property name="height">50</property>
+        <property name="width">500</property>
+        <layout manager="grid">
+          <property name="column">0</property>
+          <property name="row">2</property>
+          <property name="sticky">ew</property>
+        </layout>
+        <containerlayout manager="grid">
+          <property name="anchor">ne</property>
+          <property type="col" id="0" name="pad">0</property>
+        </containerlayout>
+        <child>
+          <object class="tk.Frame" id="expandBottomButtonFrame" named="True">
+            <property name="height">35</property>
+            <property name="padx">10</property>
+            <property name="width">500</property>
+            <layout manager="grid">
+              <property name="column">0</property>
+              <property name="row">0</property>
+              <property name="sticky">ew</property>
+            </layout>
+            <child>
+              <object class="ttk.Button" id="viewNotificationButton" named="True">
+                <property name="command" type="command" cbtype="simple">view</property>
+                <property name="state">normal</property>
+                <property name="text" translatable="yes">View Notification</property>
+                <layout manager="grid">
+                  <property name="column">1</property>
+                  <property name="padx">10</property>
+                  <property name="pady">4</property>
+                  <property name="row">0</property>
+                  <property name="sticky">e</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Button" id="browserButton" named="True">
+                <property name="command" type="command" cbtype="simple">open_browser</property>
+                <property name="text" translatable="yes">Open in Browser</property>
+                <layout manager="grid">
+                  <property name="column">0</property>
+                  <property name="padx">10</property>
+                  <property name="row">0</property>
+                  <property name="sticky">w</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

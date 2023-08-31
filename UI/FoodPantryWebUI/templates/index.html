@@ -1,0 +1,11 @@
+{% extends "default.html" %}
+{% block title %}Food Pantry {% endblock %}
+{% block header%}Welcome to the Food Pantry{% endblock %}
+{% block content %}
+        <p>Please select and item from the list below:</p>
+        <ul>
+            {% for choice in menu_choices: %}
+          <li><a href="{{choice}}">{{menu_choices[choice]}}</a></li>
+            {% endfor %}
+        </ul>
+{% endblock %}

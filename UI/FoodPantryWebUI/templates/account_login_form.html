@@ -1,0 +1,22 @@
+<!-- Returning subscriber log in form -->
+
+{% extends "default.html" %}
+{% block title %}Account Login{% endblock %}
+{% block header %}Log in here{% endblock %}
+{% block content %}
+
+<form action="/account_login" method="post">
+    <p><h2>Account Login:</h2></p>
+
+    <table>
+      <tr><th class="form_header">Email Address or Username:</th><td><input type="text" name="username_or_email"></td></tr>
+      <tr><th class="form_header">Password:</th><td><input type="password" name="user_pass"></td></tr>
+    </table>
+
+    <p>&emsp;<button type="submit">Submit</button>
+        &emsp;
+        <button type="reset">Cancel</button>
+    </p>
+  </form>
+<p><a href="/new_subscriber_form">Click here to create a new account</a></p>
+{% endblock %}				

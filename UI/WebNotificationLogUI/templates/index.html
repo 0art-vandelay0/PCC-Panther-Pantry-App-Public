@@ -1,0 +1,11 @@
+{% extends "default.html" %}
+{% block title %}Notification System{% endblock %}
+{% block header %}Notification System{% endblock %}
+{% block content %}
+    <p>Click the link below to open the Notifications DB in your browser:</p>
+    <ul>
+        {% for choice in menu_choices %}
+            <li><a href="{{ choice }}">{{ menu_choices[choice] }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

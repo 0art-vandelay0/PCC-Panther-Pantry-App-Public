@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+    <title>View Notifications</title>
+</head>
+<body>
+    <h1>View Notifications</h1>
+
+    <form method="POST" action="/search">
+        <label for="start_date">Start Date:</label>
+        <input type="date" id="start_date" name="start_date">
+
+        <label for="end_date">End Date:</label>
+        <input type="date" id="end_date" name="end_date">
+
+        <button type="submit">Search</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Date Sent</th>
+                <th>Sent By</th>
+                <th>Subscribers</th>
+                <th>Subject</th>
+                <th class="left">Message</th>
+                <th>Action</th> <!-- New column for the delete action -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for notification in notifications %}
+                <tr>
+                    <td>{{ notification.dateSent }}</td>
+                    <td>{{ notification.sentBy }}</td>
+                    <td class="centered">{{ notification.subscriberCount }}</td>
+                    <td>{{ notification.subject }}</td>
+                    <td>{{ notification.body }}</td>
+                    <td>
+                        <form method="POST" action="/delete">
+                            <input type="hidden" name="notification_id" value="{{ notification.id }}">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

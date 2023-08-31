@@ -1,0 +1,26 @@
+<!-- The parent page template that all the other html pages are based on -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Some Title{% endblock %}</title>
+    <style>
+        td, th {
+            padding: 0px 10px 0px;
+            text-align: center;
+        }
+        .form_header{
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+<!--<p>Logo goes here</p>-->
+<h1>{% block header %}Some text for the header{% endblock %}</h1>
+{% block content %}
+<p>some more stuff here</p>
+{% endblock %}
+<hr><p><a href="/">Click here to return to the main menu</a></p>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!-- New Subscriber form for user to enter information-->
+
+{% extends "default.html" %}
+{% block title %}New Subscriber{% endblock %}
+{% block header %}Create a new subscriber{% endblock %}
+{% block content %}
+<form action="/new_subscriber" method="post">
+    <p><h2>Please enter information below:</h2></p>
+
+    <table>
+      <tr><th class="form_header">Subscriber's First Name:</th><td><input type="text" name="first_name"></td></tr>
+        <tr><th class="form_header">Subscriber's Last Name</th><td><input type="text" name="last_name"></td></tr>
+      <tr><th class="form_header">Username:</th><td><input type="text" name="username"></td></tr>
+      <tr><th class="form_header">Email Address:</th><td><input type="email" name="email"></td></tr>
+      <tr><th class="form_header">Password:</th><td><input type="password" name="user_pass"></td></tr>
+        <tr><th class="form_header"> Re-Enter Password:</th><td><input type="password" name="user_pass2"></td></tr>
+    </table>
+
+    <p>&emsp;<button type="submit">Submit</button> &emsp;<button type="reset">Clear Form</button>
+    </p>
+  </form>
+<p><a href="/account_login_form">Existing account? Click here</a></p>
+{% endblock %}				

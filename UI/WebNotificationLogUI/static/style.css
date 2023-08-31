@@ -1,0 +1,41 @@
+table {
+    border-collapse: unset;
+    margin: 10px;
+    border: 5px solid black;
+}
+
+td.centered {
+    text-align: center;
+}
+
+td {
+    font-size: 15px;
+    padding: 20px 10px 20px 10px;
+    vertical-align: top;
+    border-top: 1px solid darkgray;
+    border-bottom: 1px solid darkgray;
+}
+
+th {
+    font-family: "work sans", sans-serif;
+    text-align: center;
+    padding: 8px;
+    background-color: #42504c;
+    color: azure;
+}
+
+tr:nth-child(even) {
+    background-color: #d5dddb;
+}
+
+tr:nth-child(odd) {
+  font-weight: 100;
+}
+
+tr:nth-child(odd) td {
+  border-left: 1px solid lightgrey;
+}
+
+th:nth-child(5) {
+  text-align: left;
+}
